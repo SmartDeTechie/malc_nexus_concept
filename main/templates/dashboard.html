@@ -1,8 +1,0 @@
-{% load static %}
-<h2>Welcome, {{ user.username }}</h2>
-<p>This is your dashboard.</p>
-<a href="{% url 'index' %}">Back to Home</a>
-<form method="POST" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">Logout</button>
-</form>
