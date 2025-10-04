@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MALC NEXUS - Where Technology, People, and Innovation Converge</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MALC NEXUS - Where Technology, People, and Innovation Converge</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header -->
@@ -29,6 +28,8 @@
             </nav>
         </div>
     </header>
+
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <h1>Where Technology, People, and Innovation Converge</h1>
@@ -153,36 +154,7 @@
                     <p>MALC NEXUS is a technology consultancy and development firm founded on the principle that innovation happens at the intersection of technology, people, and business needs.</p>
                     <p>This great company was founded in September 2025, by a lady <b>Ezeofor Chioma</b>, popularly as <b>SMART MALCOLM</b>. Who in quest of problem solving, believes that when 2 or more techies come together, one or more wolrd problem can be solved.</p>
                     <p>Our team of experienced developers, data scientists, and consultants work collaboratively with clients to deliver solutions that drive real business value.</p>
-                   <!-- <div class="about-stats">
-                    <div class="stat">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">15+</div>
-                            <div class="stat-label">Satisfied Clients</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">5</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                    </div>
-                </div>  
-                <div class="about-image"> 
-                     Placeholder for about image 
-                    <div style="width:100%; height:300px; background:linear-gradient(135deg, var(--accent-blue) 0%, var(--primary-blue) 100%); align-items: center; display: flex;  justify-content:center; color:white; font-size:1.5rem;">
-                        MALC NEXUS TEAM MEMBERS 
-                    </div>
-                    <div class="team_members">
-                        <ul>
-                            <div style="width:100%; height:300px;  justify-content:center; :linear-gradient(135deg, var(--accent-blue) 0%, var(--primary-blue) 100%);">
-                            <li><h3>Heswhite - Frontend Dev</h3></li>
-                            <li><h3>Victor - Backend Dev</h3></li>
-                            <li><h3>Kami grafix - Graphics Designer</h3></li>
-                            <li><h3>Smart Malcolm - Project Manager</h3></li>
-                        </ul>
-                   </div>
-                </div>-->
+                </div>
             </div>
         </div>
     </section>
@@ -225,32 +197,37 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <!-- UPDATED FORM -->
+                    <form id="contactForm" action="https://formspree.io/f/xjkaovqv" method="POST">
+                        <input type="hidden" name="_subject" id="emailSubject" value="New MALC NEXUS Inquiry">
+                        
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Your Email</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="service">Service Interest</label>
-                            <select id="service" class="form-control">
+                            <select id="service" name="service" class="form-control">
                                 <option value="">Select a service</option>
-                                <option value="software">Web Development</option>
-                                <option value="training">App Development</option>
-                                <option value="ai">AI & Data Solutions</option>
-                                <option value="consulting"> ICT Consultation</option>
-                                <option value="training">Training & Workshops</option>
-                                
+                                <option value="Web Development">Web Development</option>
+                                <option value="App Development">App Development</option>
+                                <option value="AI & Data Solutions">AI & Data Solutions</option>
+                                <option value="ICT Consultation">ICT Consultation</option>
+                                <option value="Training & Workshops">Training & Workshops</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="message">Your Message</label>
-                            <textarea id="message" class="form-control" required  placeholder="Write in detail, the features you need in the selected service."></textarea>
+                            <textarea id="message" name="message" class="form-control" required placeholder="Write in detail, the features you need in the selected service."></textarea>
                         </div>
                         <button type="submit" class="btn btn-orange" style="width:100%;">Send Message</button>
+
+                        <!-- Status messages -->
+                        <div id="formStatus" class="mt-3"></div>
                     </form>
                 </div>
             </div>
@@ -285,7 +262,7 @@
                     <h3>Services</h3>
                     <ul>
                         <li><a href="#">Web Development</a></li>
-                         <li><a href="#">App Development</a></li>
+                        <li><a href="#">App Development</a></li>
                         <li><a href="#">AI & Data Solutions</a></li>
                         <li><a href="#">ICT Consultation</a></li>
                         <li><a href="#">Training & Workshops</a></li>
@@ -307,51 +284,64 @@
             </div>
         </div>
     </footer>
+
 <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+        document.querySelector('nav ul').classList.toggle('show');
+    });
+
+    // Project filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            console.log('Filtering by: ' + this.textContent);
+        });
+    });
+
+    // Contact form AJAX submit (Formspree with custom messages)
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const statusEl = document.getElementById('formStatus');
+        statusEl.innerHTML = ""; // reset status
+
+        // Update subject dynamically
+        const service = document.getElementById('service').value || "General Inquiry";
+        document.getElementById('emailSubject').value = `New MALC NEXUS Inquiry – ${service}`;
+
+        const formData = new FormData(this);
+        const response = await fetch(this.action, {
+            method: this.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
         });
 
-        // Project filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                // In a real implementation, you would filter projects here
-                // For this example, we'll just log the filter
-                console.log('Filtering by: ' + this.textContent);
-            });
-        });
-
-        // Form submission
-        document.getElemegintById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
+        if (response.ok) {
+            statusEl.innerHTML = '<p style="color: green; font-weight: bold;">✅ Thank you for your message! We’ll get back to you soon.</p>';
             this.reset();
-        });
+        } else {
+            statusEl.innerHTML = '<p style="color: red; font-weight: bold;">❌ Oops! Something went wrong. Please try again.</p>';
+        }
+    });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
