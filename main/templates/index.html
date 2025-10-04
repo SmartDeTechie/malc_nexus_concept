@@ -1,0 +1,329 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MALC NEXUS - Where Technology, People, and Innovation Converge</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<script src="{% static 'js/main.js' %}"></script>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="{% static 'images/logo.jpg' %}" alt="">
+                <h1>MALC <span>NEXUS</span></h1>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+        <!-- Authentication Links -->
+                    <li>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'dashboard' %}">Dashboard</a> /
+                            <a href="{% url 'logout' %}">Logout</a>
+                        {% else %}
+                            <a href="{% url 'login' %}">Login</a> /
+                            <a href="{% url 'register' %}">Register</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Where Technology, People, and Innovation Converge</h1>
+            <p>Transforming businesses through cutting-edge software development, AI solutions, and strategic ICT consultation.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-orange">Start Your Project</a>
+                <a href="#projects" class="btn btn-outline">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We provide comprehensive technology solutions to help your business thrive in the digital age.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Software Development</h3>
+                    <p>Custom web and mobile applications tailored to your specific business needs and requirements.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI & Data Solutions</h3>
+                    <p>Intelligent systems, data analytics, and automation to drive insights and efficiency.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>ICT Consultation</h3>
+                    <p>Strategic guidance to help you make informed technology decisions and digital transformations.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Training & Workshops</h3>
+                    <p>Upskill your team with our specialized training programs and technical workshops.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Projects</h2>
+                <p>Explore our portfolio of successful implementations across various industries and technologies.</p>
+            </div>
+            <div class="projects-filter">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Software Development</button>
+                <button class="filter-btn">AI Solutions</button>
+                <button class="filter-btn">Consultation</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Custom online store with advanced inventory management and analytics.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Web Development</span>
+                            <span class="project-tag">E-commerce</span>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Business Intelligence Dashboard</h3>
+                        <p>Real-time analytics platform for data-driven decision making.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Data Analytics</span>
+                            <span class="project-tag">Dashboard</span>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Healthcare Mobile App</h3>
+                        <p>Patient management and telemedicine application for healthcare providers.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Mobile App</span>
+                            <span class="project-tag">Healthcare</span>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About MALC NEXUS</h2>
+                    <p>MALC NEXUS is a technology consultancy and development firm founded on the principle that innovation happens at the intersection of technology, people, and business needs.</p>
+                    <p>This great company was founded in September 2025, by a lady <b>Ezeofor Chioma</b>, popularly as <b>SMART MALCOLM</b>. Who in quest of problem solving, believes that when 2 or more techies come together, one or more wolrd problem can be solved.</p>
+                    <p>Our team of experienced developers, data scientists, and consultants work collaboratively with clients to deliver solutions that drive real business value.</p>
+                   <!-- <div class="about-stats">
+                    <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Satisfied Clients</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                     Placeholder for about image
+                    <div style="width:100%; height:300px; background:linear-gradient(135deg, var(--accent-blue) 0%, var(--primary-blue) 100%); align-items: center; display: flex;  justify-content:center; color:white; font-size:1.5rem;">
+                        MALC NEXUS TEAM MEMBERS
+                    </div>
+                    <div class="team_members">
+                        <ul>
+                            <div style="width:100%; height:300px;  justify-content:center; :linear-gradient(135deg, var(--accent-blue) 0%, var(--primary-blue) 100%);">
+                            <li><h3>Heswhite - Frontend Dev</h3></li>
+                            <li><h3>Victor - Backend Dev</h3></li>
+                            <li><h3>Kami grafix - Graphics Designer</h3></li>
+                            <li><h3>Smart Malcolm - Project Manager</h3></li>
+                        </ul>
+                   </div>
+                </div>-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>In need of any of our services?</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Our Location</h3>
+                            <p>Chukwuemeka ODUMEGWU OJUKWU University, Uli Campus </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Phone Number</h3>
+                            <p>+234 7014109517</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email Address</h3>
+                            <p>info@malcnexus.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" class="form-control">
+                                <option value="">Select a service</option>
+                                <option value="software">Web Development</option>
+                                <option value="training">App Development</option>
+                                <option value="ai">AI & Data Solutions</option>
+                                <option value="consulting"> ICT Consultation</option>
+                                <option value="training">Training & Workshops</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required  placeholder="Write in detail, the features you need in the selected service."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-orange" style="width:100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>MALC NEXUS</h3>
+                    <p>Where technology, people, and innovation converge to create transformative digital solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                         <li><a href="#">App Development</a></li>
+                        <li><a href="#">AI & Data Solutions</a></li>
+                        <li><a href="#">ICT Consultation</a></li>
+                        <li><a href="#">Training & Workshops</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and insights.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your email address">
+                        </div>
+                        <button type="submit" class="btn btn-orange" style="width:100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MALC NEXUS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Services Section (unchanged) -->
+    <!-- ...Your existing services, projects, about, and contact sections remain unchanged... -->
+
+    <!-- Footer Section (unchanged) -->
+    <!-- ...Your existing footer remains unchanged... -->
+</body>
+</html>
