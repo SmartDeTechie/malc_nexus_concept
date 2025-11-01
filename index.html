@@ -8,7 +8,6 @@
   <link rel="icon" href="images/logo.jpg" type="image/x-icon">
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -29,8 +28,6 @@
             </nav>
         </div>
     </header>
-
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <h1>Where Technology, People, and Innovation Converge</h1>
@@ -41,8 +38,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
             <div class="section-title">
@@ -86,7 +81,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="container">
             <div class="section-title">
@@ -146,7 +140,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
@@ -160,8 +153,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-  <!-- Contact Section -->
 <section class="contact" id="contact">
     <div class="container">
         <div class="section-title">
@@ -246,7 +237,6 @@
     </div>
 </section>
 
-<!-- Footer -->
 <footer>
     <div class="container">
         <div class="footer-content">
@@ -301,12 +291,10 @@
     </footer>
 
 <script>
-    // Mobile menu toggle
     document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
         document.querySelector('nav ul').classList.toggle('show');
     });
 
-    // Project filter functionality
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -316,14 +304,12 @@
         });
     });
 
-    // Contact form AJAX submit (Formspree with custom messages)
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         
         const statusEl = document.getElementById('formStatus');
-        statusEl.innerHTML = ""; // reset status
+        statusEl.innerHTML = ""; 
 
-        // Update subject dynamically
         const service = document.getElementById('service').value || "General Inquiry";
         document.getElementById('emailSubject').value = `New MALC NEXUS Inquiry – ${service}`;
 
@@ -342,7 +328,6 @@
         }
     });
 
-    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
